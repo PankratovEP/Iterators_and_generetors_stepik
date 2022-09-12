@@ -1,4 +1,5 @@
 from random import *
+import itertools
 lst = [1, True, 0, 'ddfg', 12.222, [1,2]]
 my_iter = iter(lst)
 def prohod():
@@ -33,8 +34,6 @@ class  DoubleElementListIterator:
 class MyList(list):
     def __iter__(self):
         return DoubleElementListIterator(self)
-
-
 class multifilter:
     def judge_half(pos, neg):
         # допускает элемент, если его допускает хотя бы половина фукнций (pos >= neg)
@@ -66,6 +65,16 @@ class multifilter:
                 else: neg +=1
             if self.judge(pos, neg):
                 yield i
-
-
+def primes():
+    i = 2
+    while True:
+        k = 0
+        for j in range(1, i + 1):
+            if i % j == 0:
+                k += 1
+            if k > 2:
+                break
+        if k == 2:
+            yield i
+        i += 1
 
